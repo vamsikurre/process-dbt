@@ -1,9 +1,9 @@
 version: 2
 sources:
-- name: AIRBYTE_SCHEMA
+- name: public
   quoting:
     database: true
     schema: false
     identifier: false
   tables:
-  - name: _AIRBYTE_RAW_ORB_PROCESS
+  - name: _airbyte_raw_orb_test_data
