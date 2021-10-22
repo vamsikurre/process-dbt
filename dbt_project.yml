@@ -33,13 +33,11 @@ clean-targets:         # directories to be removed by `dbt clean`
 # using the `{{ config(...) }}` macro.
 models:
   test_transform:
-    +materialized: table
-      airbyte_ctes:
-        +materialized: ephemeral
-        +tags: airbyte_internal_cte
-      airbyte_tables:
-        +materialized: table
-        +tags: normalized_tables
-      airbyte_views:
-        +materialized: view
-        +tags: airbyte_internal_views
+  +materialized: table
+  generated:
+    airbyte_ctes:
+      +materialized: ephemeral
+      +tags: airbyte_internal_cte
+    airbyte_tables:
+      +materialized: table
+      +tags: normalized_tables
