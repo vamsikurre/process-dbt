@@ -2,7 +2,7 @@
 # Name your project! Project names should contain only lowercase characters
 # and underscores. A good package name should reflect your organization's
 # name or the intended use of these models
-name: 'orb_process'
+name: 'test_transform'
 version: '1.0.0'
 config-version: 2
 
@@ -32,11 +32,14 @@ clean-targets:         # directories to be removed by `dbt clean`
 # as tables. These settings can be overridden in the individual model files
 # using the `{{ config(...) }}` macro.
 models:
-  orb_process:
-    orb_process_ctes:
-      +tags: airbyte_internal_cte
-      +materialized: ephemeral
-    orb_process_tables:
-      +tags: normalized_tables
-      +materialized: table
-  +materialized: table
+  test_transform:
+    +materialized: table
+      airbyte_ctes:
+        +materialized: ephemeral
+        +tags: airbyte_internal_cte
+      airbyte_tables:
+        +materialized: table
+        +tags: normalized_tables
+      airbyte_views:
+        +materialized: view
+        +tags: airbyte_internal_views
